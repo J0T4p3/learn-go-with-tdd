@@ -8,8 +8,6 @@ func Hello(name string) string {
 
 func main() {
 	name := "João"
-
 	greeting := Hello(name)
-
 	fmt.Println(greeting)
 }
