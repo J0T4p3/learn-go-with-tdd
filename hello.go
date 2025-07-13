@@ -2,8 +2,15 @@ package main
 
 import "fmt"
 
+// Constants make easier to improve performance and to
+// refactoring.
+const englishGreetingWord = "Hello, "
+
 func Hello(name string) string {
-	return fmt.Sprintf("Hello, %v!", name)
+	if name == "" {
+		name = "World"
+	}
+	return fmt.Sprint(englishGreetingWord + name)
 }
 
 func main() {
