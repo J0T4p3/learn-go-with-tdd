@@ -1,5 +1,6 @@
 package arrays
 
+// Receive a slice of ints and returns it's sum
 func Sum(numbers []int) int {
 	var sum int
 	// Defines if it will count the first value on the collection
@@ -9,6 +10,7 @@ func Sum(numbers []int) int {
 	return sum
 }
 
+// Receives slices of slices of ints and returns a new slice with the sum of it's contents
 func SumAll(sumAll ...[]int) []int {
 	var sums []int
 	for _, slice := range sumAll {
