@@ -21,7 +21,10 @@ func TestCountdown(t *testing.T) {
 	})
 	t.Run("sleep before every print", func(t *testing.T) {
 		spySleepPrinter := &SpyCountDownOperations{}
-		Countdown(spySleepPrinter, spySleepPrinter)
+		Countdown(
+			spySleepPrinter,
+			spySleepPrinter,
+		)
 
 		want := []string{
 			write,
@@ -34,7 +37,10 @@ func TestCountdown(t *testing.T) {
 		}
 
 		if !reflect.DeepEqual(want, spySleepPrinter.Calls) {
-			t.Errorf("wanted calls %v got %v", want, spySleepPrinter.Calls)
+			t.Errorf("wanted calls %v got %v",
+				want,
+				spySleepPrinter.Calls,
+			)
 		}
 	})
 }
@@ -43,10 +49,17 @@ func TestConfigurableSleeper(t *testing.T) {
 	sleepTime := 5 * time.Second
 
 	spyTime := &SpyTime{}
-	sleeper := ConfigurableSleeper{sleepTime, spyTime.SetDurationSlept}
+	sleeper := ConfigurableSleeper{
+		sleepTime,
+		spyTime.SetDurationSlept,
+	}
 	sleeper.Sleep()
 	if spyTime.durationSlept != sleepTime {
-		t.Errorf("should have slept for %v, slept %v", sleepTime, spyTime.durationSlept)
+		t.Errorf(
+			"should have slept for %v, slept %v",
+			sleepTime,
+			spyTime.durationSlept,
+		)
 	}
 
 }
