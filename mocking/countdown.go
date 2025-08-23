@@ -12,6 +12,7 @@ type Sleeper interface {
 	Sleep()
 }
 
+// Struct for "prod" code
 type ConfigurableSleeper struct {
 	duration time.Duration
 	sleep    func(time.Duration)
@@ -21,6 +22,7 @@ func (c *ConfigurableSleeper) Sleep() {
 	c.sleep(c.duration)
 }
 
+// Struct for tests
 type SpyTime struct {
 	durationSlept time.Duration
 }
